@@ -1,0 +1,16 @@
+version: "3.9"
+
+services:
+  app:
+    build:
+      context: ../..
+      dockerfile: Dockerfile
+    command: node dist/app.js
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.prod
+    environment:
+      # DATABASE_URL is automatically injected by Railway if using its MySQL plugin
+      NODE_ENV: production
+    depends_on: []
