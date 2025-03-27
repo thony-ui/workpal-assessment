@@ -17,4 +17,8 @@ WORKDIR /app
 COPY --from=build /app/dist ./dist
 COPY --from=base /app/node_modules ./node_modules
 COPY infra/docker/.env.prod .env
+COPY infra/docker/entrypoint.sh ./entrypoint.sh
+
+# ✅ Make sure it's executable
+RUN chmod +x ./entrypoint.sh
 CMD ["node", "dist/app.js"]
