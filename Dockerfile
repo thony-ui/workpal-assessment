@@ -22,5 +22,9 @@ COPY --from=build /app/dist ./dist
 COPY --from=build /app/prisma ./prisma 
 COPY --from=base /app/node_modules ./node_modules
 
+COPY infra/docker/entrypoint.sh ./entrypoint.sh
+RUN chmod +x ./entrypoint.sh
+
 # Entry point will run db push + start
+ENTRYPOINT ["./entrypoint.sh"]
 CMD ["node", "dist/app.js"]
