@@ -5,7 +5,7 @@ services:
     build:
       context: ../..
       dockerfile: Dockerfile
-    entrypoint: ./entrypoint.sh
+    entrypoint: ./infra/docker/entrypoint.sh
     command: node dist/app.js
     ports:
       - "3000:3000"
