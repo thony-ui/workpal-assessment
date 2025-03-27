@@ -26,4 +26,5 @@ COPY infra/docker/entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
 # Entry point will run db push + start
+ENTRYPOINT ["./entrypoint.sh"]
 CMD ["node", "dist/app.js"]
