@@ -1,11 +1,18 @@
 #!/bin/sh
 
-# Run Prisma commands before starting the app
-echo "⏳ Running Prisma generate..."
-npx prisma generate
+# Fail if DATABASE_URL is not set
+if [ -z "$DATABASE_URL" ]; then
+  echo "❌ Error: DATABASE_URL is not set"
+  exit 1
+fi
 
-echo "🚀 Pushing schema to DB..."
-npx prisma db push
+echo "✅ DATABASE_URL is set"
 
-echo "✅ Starting app..."
+echo "🧬 Running Prisma generate..."
+npx prisma generate --schema=./prisma/schema.prisma
+
+echo "🚀 Pushing schema to database..."
+npx prisma db push --schema=./prisma/schema.prisma
+
+echo "🚀 Starting app..."
 exec "$@"

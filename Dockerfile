@@ -22,7 +22,6 @@ COPY --from=build /app/dist ./dist
 COPY --from=build /app/prisma ./prisma 
 COPY --from=base /app/node_modules ./node_modules
 
-COPY infra/docker/.env.prod .env
 COPY infra/docker/entrypoint.sh ./entrypoint.sh
 RUN chmod +x ./entrypoint.sh
 
