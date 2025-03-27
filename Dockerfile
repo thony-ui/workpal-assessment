@@ -11,7 +11,6 @@ COPY . .
 # ✅ Copy the Prisma folder into the build context
 COPY prisma ./prisma
 
-RUN npx prisma generate
 RUN npm run build
 
 # --- 3. Production image
