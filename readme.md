@@ -16,7 +16,7 @@ Test the deployed API:
 ### 1. Clone the Repository
 
 ```bash
-git clone https://github.com/your-username/workpal-api.git
+git clone https://github.com/thony-ui/workpal-api.git
 cd workpal-api
 ```
 
